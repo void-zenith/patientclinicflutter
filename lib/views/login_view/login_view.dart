@@ -35,58 +35,60 @@ class LoginView extends StatelessWidget {
               )),
           Expanded(
               flex: 2,
-              child: Form(
-                  child: Column(
-                children: [
-                  CustomTextField(
-                    placeHolderText: ConstString.emailHint,
-                  ),
-                  14.heightBox,
-                  CustomTextField(
-                    placeHolderText: ConstString.passwordHint,
-                  ),
-                  24.heightBox,
-                  Align(
-                      alignment: Alignment.centerRight,
-                      child: TextStyles.regular(
-                        label: ConstString.forgotPWLabel,
-                        textColor: ConstColors.textColor,
-                        textSize: ConstSizes.smallSize,
-                        textWeight: FontWeight.w400,
-                      )),
-                  24.heightBox,
-                  CustomElevatedButton(
-                    onPressed: () {},
-                    buttonTextColor: Colors.white,
-                    buttonColor: ConstColors.priamryColor,
-                    buttonLabel: ConstString.login,
-                  ),
-                  24.heightBox,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextStyles.regular(
-                        label: ConstString.noAccountLabel,
-                        textColor: ConstColors.textColor,
-                        textSize: ConstSizes.smallSize,
-                        textWeight: FontWeight.w400,
-                      ),
-                      6.widthBox,
-                      GestureDetector(
-                        onTap: () {
-                          Get.to(() => const RegisterView());
-                        },
+              child: SingleChildScrollView(
+                child: Form(
+                    child: Column(
+                  children: [
+                    CustomTextField(
+                      placeHolderText: ConstString.emailHint,
+                    ),
+                    14.heightBox,
+                    CustomTextField(
+                      placeHolderText: ConstString.passwordHint,
+                    ),
+                    24.heightBox,
+                    Align(
+                        alignment: Alignment.centerRight,
                         child: TextStyles.regular(
-                          label: ConstString.signupnow,
+                          label: ConstString.forgotPWLabel,
                           textColor: ConstColors.textColor,
                           textSize: ConstSizes.smallSize,
-                          textWeight: FontWeight.w700,
+                          textWeight: FontWeight.w400,
+                        )),
+                    24.heightBox,
+                    CustomElevatedButton(
+                      onPressed: () {},
+                      buttonTextColor: Colors.white,
+                      buttonColor: ConstColors.priamryColor,
+                      buttonLabel: ConstString.login,
+                    ),
+                    24.heightBox,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextStyles.regular(
+                          label: ConstString.noAccountLabel,
+                          textColor: ConstColors.textColor,
+                          textSize: ConstSizes.smallSize,
+                          textWeight: FontWeight.w400,
                         ),
-                      )
-                    ],
-                  )
-                ],
-              )))
+                        6.widthBox,
+                        GestureDetector(
+                          onTap: () {
+                            Get.to(() => const RegisterView());
+                          },
+                          child: TextStyles.regular(
+                            label: ConstString.signupnow,
+                            textColor: ConstColors.textColor,
+                            textSize: ConstSizes.smallSize,
+                            textWeight: FontWeight.w700,
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                )),
+              ))
         ]),
       ),
     );
