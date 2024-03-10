@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:patientclinicflutter/components/customElevatedButton.dart';
 import 'package:patientclinicflutter/constants/const.dart';
 import 'package:patientclinicflutter/components/customTextField.dart';
+import 'package:patientclinicflutter/views/home_view/home_view.dart';
 import 'package:patientclinicflutter/views/register_view/register_view.dart';
 
 class LoginView extends StatelessWidget {
@@ -57,7 +58,9 @@ class LoginView extends StatelessWidget {
                         )),
                     24.heightBox,
                     CustomElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(() => const HomeView());
+                      },
                       buttonTextColor: Colors.white,
                       buttonColor: ConstColors.priamryColor,
                       buttonLabel: ConstString.login,
