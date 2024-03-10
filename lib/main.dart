@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import "package:get/get.dart";
+import 'package:patientclinicflutter/constants/const.dart';
+import 'package:patientclinicflutter/views/login_view/login_view.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,12 +12,10 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return GetMaterialApp(
+      theme: ThemeData(fontFamily: ConstFonts.nunito),
+      debugShowCheckedModeBanner: false,
+      home: const LoginView(),
     );
   }
 }
