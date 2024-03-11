@@ -4,6 +4,7 @@ import 'package:patientclinicflutter/components/customTextField.dart';
 import 'package:patientclinicflutter/constants/const.dart';
 import 'package:patientclinicflutter/views/add_patient_view/add_patient_view.dart';
 import 'package:patientclinicflutter/views/splash_view.dart';
+import 'package:patientclinicflutter/views/view_patient_view/view_patient_view.dart';
 
 class HomeView extends StatelessWidget {
   HomeView({super.key});
@@ -148,7 +149,7 @@ class HomeView extends StatelessWidget {
                           size: 14,
                         ),
                         onTap: () {
-                          // Add your onTap functionality here
+                          Get.to(() => const ViewPatient());
                         },
                       ),
                     );
