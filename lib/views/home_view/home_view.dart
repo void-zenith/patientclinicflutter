@@ -149,7 +149,7 @@ class HomeView extends StatelessWidget {
                           size: 14,
                         ),
                         onTap: () {
-                          Get.to(() => const ViewPatient());
+                          Get.to(() => ViewPatient());
                         },
                       ),
                     );
