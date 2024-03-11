@@ -19,11 +19,13 @@ class TextStyles {
       {String? label,
       Color? textColor = Colors.black,
       double? textSize,
-      FontWeight? textWeight}) {
+      FontWeight? textWeight,
+      TextAlign? alignment = TextAlign.left}) {
     return label?.text
         .size(textSize)
         .fontWeight(textWeight!)
         .color(textColor)
+        .align(alignment!)
         .make();
   }
 }

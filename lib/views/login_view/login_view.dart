@@ -59,7 +59,7 @@ class LoginView extends StatelessWidget {
                     24.heightBox,
                     CustomElevatedButton(
                       onPressed: () {
-                        Get.to(() => const HomeView());
+                        Get.to(() => HomeView());
                       },
                       buttonTextColor: Colors.white,
                       buttonColor: ConstColors.priamryColor,
