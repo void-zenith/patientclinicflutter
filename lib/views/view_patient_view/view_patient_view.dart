@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:patientclinicflutter/components/customElevatedButton.dart';
 import 'package:patientclinicflutter/models/Record.dart';
+import 'package:patientclinicflutter/views/add_record_view/add_record_view.dart';
 
 import '../../constants/const.dart';
 import '../add_patient_view/add_patient_view.dart';
@@ -243,7 +244,7 @@ class ViewPatient extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.to(() => const AddPatientView());
+          Get.to(() => const AddRecordView());
           // Add your onPressed functionality here
         },
         backgroundColor: ConstColors.priamryColor,

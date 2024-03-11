@@ -6,28 +6,14 @@ import '../../components/customTextField.dart';
 import '../../constants/const.dart';
 import '../home_view/home_view.dart';
 
-class AddPatientForm extends StatefulWidget {
+class AddRecordForm extends StatefulWidget {
   @override
-  _AddPatientState createState() => _AddPatientState();
+  _AddRecordState createState() => _AddRecordState();
 }
 
-class _AddPatientState extends State<AddPatientForm> {
+class _AddRecordState extends State<AddRecordForm> {
   String? _gender;
   DateTime selectedDate = DateTime.now();
-
-  Future<void> _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: selectedDate,
-      firstDate: DateTime(1900),
-      lastDate: DateTime(2101),
-    );
-    if (picked != null && picked != selectedDate) {
-      setState(() {
-        selectedDate = picked;
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,14 +35,40 @@ class _AddPatientState extends State<AddPatientForm> {
                   ),
                 ),
                 8.heightBox,
-                CustomTextField(
-                  placeHolderText: ConstString.patientNameHint,
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: TextStyles.regular(
+                    label: "Zenith Rajbhandari",
+                    textSize: ConstSizes.largeSize,
+                    textColor: ConstColors.priamryColor,
+                    textWeight: FontWeight.w500,
+                  ),
                 ),
                 14.heightBox,
                 Align(
                   alignment: Alignment.centerLeft,
                   child: TextStyles.regular(
-                    label: "Patient's Email:",
+                    label: "Time Now:",
+                    textSize: ConstSizes.smallSize,
+                    textColor: ConstColors.priamryColor,
+                    textWeight: FontWeight.w500,
+                  ),
+                ),
+                8.heightBox,
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: TextStyles.regular(
+                    label: selectedDate.toLocal().toString(),
+                    textSize: ConstSizes.largeSize,
+                    textColor: ConstColors.priamryColor,
+                    textWeight: FontWeight.w500,
+                  ),
+                ),
+                14.heightBox,
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: TextStyles.regular(
+                    label: "Systolic Blood Pressure",
                     textSize: ConstSizes.smallSize,
                     textColor: ConstColors.priamryColor,
                     textWeight: FontWeight.w500,
@@ -64,13 +76,13 @@ class _AddPatientState extends State<AddPatientForm> {
                 ),
                 8.heightBox,
                 CustomTextField(
-                  placeHolderText: ConstString.patientEmail,
+                  placeHolderText: ConstString.systolicHint,
                 ),
                 14.heightBox,
                 Align(
                   alignment: Alignment.centerLeft,
                   child: TextStyles.regular(
-                    label: "Patient's Address:",
+                    label: "Diastolic Blood Pressure",
                     textSize: ConstSizes.smallSize,
                     textColor: ConstColors.priamryColor,
                     textWeight: FontWeight.w500,
@@ -78,91 +90,49 @@ class _AddPatientState extends State<AddPatientForm> {
                 ),
                 8.heightBox,
                 CustomTextField(
-                  placeHolderText: ConstString.patientAddress,
-                ),
-                14.heightBox,
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: TextStyles.regular(
-                    label: "Patient's Number:",
-                    textSize: ConstSizes.smallSize,
-                    textColor: ConstColors.priamryColor,
-                    textWeight: FontWeight.w500,
-                  ),
-                ),
-                8.heightBox,
-                CustomTextField(
-                  placeHolderText: ConstString.patientNumber,
+                  placeHolderText: ConstString.diastolicHint,
                 ),
                 24.heightBox,
                 Align(
                   alignment: Alignment.centerLeft,
                   child: TextStyles.regular(
-                    label: "Patient's Gender:",
+                    label: "Respiratory Rate:",
                     textSize: ConstSizes.smallSize,
                     textColor: ConstColors.priamryColor,
                     textWeight: FontWeight.w500,
                   ),
                 ),
                 8.heightBox,
-                RadioListTile<String>(
-                  title: Text('Male'),
-                  value: 'Male',
-                  groupValue: _gender,
-                  onChanged: (value) {
-                    setState(() {
-                      _gender = value;
-                    });
-                  },
-                ),
-                RadioListTile<String>(
-                  title: Text('Female'),
-                  value: 'Female',
-                  groupValue: _gender,
-                  onChanged: (value) {
-                    setState(() {
-                      _gender = value;
-                    });
-                  },
-                ),
-                RadioListTile<String>(
-                  title: Text('Other'),
-                  value: 'Other',
-                  groupValue: _gender,
-                  onChanged: (value) {
-                    setState(() {
-                      _gender = value;
-                    });
-                  },
+                CustomTextField(
+                  placeHolderText: ConstString.respiratoryHint,
                 ),
                 24.heightBox,
                 Align(
                   alignment: Alignment.centerLeft,
                   child: TextStyles.regular(
-                    label: "Patient's Date of Birth:",
+                    label: "Heartbeat Rate:",
                     textSize: ConstSizes.smallSize,
                     textColor: ConstColors.priamryColor,
                     textWeight: FontWeight.w500,
                   ),
                 ),
                 8.heightBox,
-                Row(
-                  children: [
-                    TextStyles.regular(
-                        label: "${selectedDate.toLocal()}".split(' ')[0],
-                        textSize: ConstSizes.regularSize,
-                        textWeight: FontWeight.bold,
-                        textColor: ConstColors.textColor),
-                    48.widthBox,
-                    ElevatedButton(
-                      onPressed: () => _selectDate(context),
-                      child: TextStyles.regular(
-                          label: "Select Date",
-                          textSize: ConstSizes.regularSize,
-                          textWeight: FontWeight.bold,
-                          textColor: ConstColors.textColor),
-                    ),
-                  ],
+                CustomTextField(
+                  placeHolderText: ConstString.heartBeatHint,
+                ),
+                24.heightBox,
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: TextStyles.regular(
+                    label: "Blood Oxygen Level:",
+                    textSize: ConstSizes.smallSize,
+                    textColor: ConstColors.priamryColor,
+                    textWeight: FontWeight.w500,
+                  ),
+                ),
+                8.heightBox,
+                CustomTextField(
+                  placeHolderText: ConstString.bloodOxygenHint,
                 ),
                 24.heightBox,
                 CustomElevatedButton(
@@ -171,7 +141,7 @@ class _AddPatientState extends State<AddPatientForm> {
                   },
                   buttonTextColor: Colors.white,
                   buttonColor: ConstColors.priamryColor,
-                  buttonLabel: ConstString.addPatient,
+                  buttonLabel: ConstString.addRecord,
                 ),
               ],
             )),

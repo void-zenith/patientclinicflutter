@@ -15,5 +15,12 @@ class ConstString {
       patientAddress = "Enter Patietn's address",
       noAccountLabel = "Don't have an account?",
       haveAccountLabel = "Have an account?",
-      forgotPWLabel = "Forgot Password?";
+      forgotPWLabel = "Forgot Password?",
+      systolicHint = "Enter Systolic Blood Pressure.",
+      diastolicHint = "Enter Diastolic Blood Pressure.",
+      respiratoryHint = "Enter Respiratory Rate..",
+      heartBeatHint = "Enter Heartbeat Rate..",
+      bloodOxygenHint = "Enter Blood Oxygen Level..",
+      addPatient = "Add Patient",
+      addRecord = "Add Record";
 }

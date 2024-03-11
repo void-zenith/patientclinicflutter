@@ -22,8 +22,8 @@ class HomeView extends StatelessWidget {
 
   final List<String> items = [
     "zenith rajbhandari",
-    "abhiyan bhattarai",
-    "item 1"
+    "Toga bhattarai",
+    "Ram Bhai"
   ];
   @override
   Widget build(BuildContext context) {
@@ -104,13 +104,24 @@ class HomeView extends StatelessWidget {
                 ],
               ),
               14.heightBox,
-              Align(
-                alignment: Alignment.centerLeft,
-                child: TextStyles.regular(
-                    label: "List of Patients",
-                    textSize: ConstSizes.extraLarge,
-                    textWeight: FontWeight.w700,
-                    alignment: TextAlign.left),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  TextStyles.regular(
+                      label: "List of Patients",
+                      textSize: ConstSizes.extraLarge,
+                      textWeight: FontWeight.w700,
+                      alignment: TextAlign.left),
+                  GestureDetector(
+                    onTap: () {},
+                    child: TextStyles.regular(
+                        label: "View all",
+                        textSize: ConstSizes.extraSmallSize,
+                        textWeight: FontWeight.w400,
+                        alignment: TextAlign.right),
+                  )
+                ],
               ),
               14.heightBox,
               Expanded(
@@ -139,6 +150,69 @@ class HomeView extends StatelessWidget {
                             textWeight: FontWeight.w600),
                         leading: CircleAvatar(
                             backgroundColor: ConstColors.lightPrimaryColor,
+                            child: TextStyles.regular(
+                                label: "${index + 1}",
+                                textColor: ConstColors.textColor,
+                                textSize: ConstSizes.smallSize,
+                                textWeight: FontWeight.w600)),
+                        trailing: const Icon(
+                          Icons.arrow_forward_ios,
+                          size: 14,
+                        ),
+                        onTap: () {
+                          Get.to(() => ViewPatient());
+                        },
+                      ),
+                    );
+                  },
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  TextStyles.regular(
+                      label: "List of Critical Patients",
+                      textSize: ConstSizes.extraLarge,
+                      textWeight: FontWeight.w700,
+                      alignment: TextAlign.left),
+                  GestureDetector(
+                    onTap: () {},
+                    child: TextStyles.regular(
+                        label: "View all",
+                        textSize: ConstSizes.extraSmallSize,
+                        textWeight: FontWeight.w400,
+                        alignment: TextAlign.right),
+                  )
+                ],
+              ),
+              14.heightBox,
+              Expanded(
+                child: ListView.builder(
+                  itemCount: items.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: const EdgeInsets.only(bottom: 14),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 2,
+                            blurRadius: 5,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      child: ListTile(
+                        title: TextStyles.regular(
+                            label: items[index],
+                            textColor: ConstColors.textColor,
+                            textSize: ConstSizes.regularSize,
+                            textWeight: FontWeight.w600),
+                        leading: CircleAvatar(
+                            backgroundColor: ConstColors.redColor,
                             child: TextStyles.regular(
                                 label: "${index + 1}",
                                 textColor: ConstColors.textColor,
