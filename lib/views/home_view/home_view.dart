@@ -5,6 +5,8 @@ import 'package:patientclinicflutter/constants/const.dart';
 import 'package:patientclinicflutter/views/add_patient_view/add_patient_view.dart';
 import 'package:patientclinicflutter/views/splash_view.dart';
 import 'package:patientclinicflutter/views/view_patient_view/view_patient_view.dart';
+import 'package:patientclinicflutter/views/viewall_patient_view/viewall_critical_patient_view.dart';
+import 'package:patientclinicflutter/views/viewall_patient_view/viewall_patient_view.dart';
 
 class HomeView extends StatelessWidget {
   HomeView({super.key});
@@ -114,7 +116,9 @@ class HomeView extends StatelessWidget {
                       textWeight: FontWeight.w700,
                       alignment: TextAlign.left),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(() => ViewAllPatient());
+                    },
                     child: TextStyles.regular(
                         label: "View all",
                         textSize: ConstSizes.extraSmallSize,
@@ -177,7 +181,9 @@ class HomeView extends StatelessWidget {
                       textWeight: FontWeight.w700,
                       alignment: TextAlign.left),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(() => ViewAllCriticalPatient());
+                    },
                     child: TextStyles.regular(
                         label: "View all",
                         textSize: ConstSizes.extraSmallSize,

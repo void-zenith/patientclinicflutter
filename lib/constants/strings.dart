@@ -6,6 +6,7 @@ class ConstString {
       registerText = "Come Join Us, Register Now!",
       signup = "Sign Up",
       signupnow = "Sign Up Now!",
+      searchHint = "Search..",
       passwordHint = "Enter Your Password...",
       emailHint = "Enter Your Email...",
       nameHint = "Enter Your Full Name...",
