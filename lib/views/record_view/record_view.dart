@@ -3,14 +3,13 @@ import 'package:get/get.dart';
 import 'package:patientclinicflutter/components/customElevatedButton.dart';
 import 'package:patientclinicflutter/models/Record.dart';
 import 'package:patientclinicflutter/views/add_record_view/add_record_view.dart';
-import 'package:patientclinicflutter/views/record_view/record_view.dart';
 
 import '../../constants/const.dart';
 import '../add_patient_view/add_patient_view.dart';
 import '../splash_view.dart';
 
-class ViewPatient extends StatelessWidget {
-  ViewPatient({super.key});
+class ViewRecord extends StatelessWidget {
+  ViewRecord({super.key});
 
   void onSelected(BuildContext context, int item) {
     switch (item) {
@@ -35,7 +34,7 @@ class ViewPatient extends StatelessWidget {
         backgroundColor: ConstColors.priamryColor,
         centerTitle: true,
         title: TextStyles.regular(
-            label: "View Patient",
+            label: "View Record",
             textColor: Colors.white,
             textSize: ConstSizes.extraLarge,
             textWeight: FontWeight.w700),
@@ -58,9 +57,25 @@ class ViewPatient extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             TextStyles.regular(
+                label: "Record Of",
+                textColor: ConstColors.textColor,
+                textSize: ConstSizes.smallSize,
+                textWeight: FontWeight.w400),
+            TextStyles.regular(
                 label: "Zenith Rajbhandari",
                 textColor: ConstColors.priamryColor,
                 textSize: ConstSizes.doubleLarge,
+                textWeight: FontWeight.w700),
+            8.heightBox,
+            TextStyles.regular(
+                label: "Recorded On",
+                textColor: ConstColors.textColor,
+                textSize: ConstSizes.smallSize,
+                textWeight: FontWeight.w400),
+            TextStyles.regular(
+                label: "2024-12-12 at 17:00 AM",
+                textColor: ConstColors.priamryColor,
+                textSize: ConstSizes.regularSize,
                 textWeight: FontWeight.w700),
             14.heightBox,
             Container(
@@ -75,29 +90,12 @@ class ViewPatient extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         TextStyles.regular(
-                            label: "Email: ",
+                            label: "Systolic Blood Pressure: ",
                             textColor: ConstColors.textColor,
                             textSize: ConstSizes.smallSize,
                             textWeight: FontWeight.w500),
                         TextStyles.regular(
-                            label: "zenithrajbhandari@gmail.com",
-                            textColor: ConstColors.textColor,
-                            textSize: ConstSizes.smallSize,
-                            textWeight: FontWeight.w500),
-                      ],
-                    ),
-                    3.heightBox,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        TextStyles.regular(
-                            label: "Phone Number: ",
-                            textColor: ConstColors.textColor,
-                            textSize: ConstSizes.smallSize,
-                            textWeight: FontWeight.w500),
-                        TextStyles.regular(
-                            label: "+1 4161113333",
+                            label: "120",
                             textColor: ConstColors.textColor,
                             textSize: ConstSizes.smallSize,
                             textWeight: FontWeight.w500),
@@ -109,12 +107,29 @@ class ViewPatient extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         TextStyles.regular(
-                            label: "Address: ",
+                            label: "Diastolic Blood Pressure: ",
                             textColor: ConstColors.textColor,
                             textSize: ConstSizes.smallSize,
                             textWeight: FontWeight.w500),
                         TextStyles.regular(
-                            label: "15 Road, Scarbrough",
+                            label: "120",
+                            textColor: ConstColors.textColor,
+                            textSize: ConstSizes.smallSize,
+                            textWeight: FontWeight.w500),
+                      ],
+                    ),
+                    3.heightBox,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TextStyles.regular(
+                            label: "Respiratory Rate: ",
+                            textColor: ConstColors.textColor,
+                            textSize: ConstSizes.smallSize,
+                            textWeight: FontWeight.w500),
+                        TextStyles.regular(
+                            label: "90",
                             textColor: ConstColors.textColor,
                             textSize: ConstSizes.smallSize,
                             textWeight: FontWeight.w500)
@@ -126,12 +141,12 @@ class ViewPatient extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         TextStyles.regular(
-                            label: "Gender: ",
+                            label: "Heartbeat Rate(bpm): ",
                             textColor: ConstColors.textColor,
                             textSize: ConstSizes.smallSize,
                             textWeight: FontWeight.w500),
                         TextStyles.regular(
-                            label: "Male",
+                            label: "80bpm",
                             textColor: ConstColors.textColor,
                             textSize: ConstSizes.smallSize,
                             textWeight: FontWeight.w500)
@@ -143,12 +158,12 @@ class ViewPatient extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         TextStyles.regular(
-                            label: "Date of Birth: ",
+                            label: "Blood Oxygen Level: ",
                             textColor: ConstColors.textColor,
                             textSize: ConstSizes.smallSize,
                             textWeight: FontWeight.w500),
                         TextStyles.regular(
-                            label: "2024-12-12",
+                            label: "190",
                             textColor: ConstColors.textColor,
                             textSize: ConstSizes.smallSize,
                             textWeight: FontWeight.w500)
@@ -157,91 +172,17 @@ class ViewPatient extends StatelessWidget {
                   ],
                 )),
             14.heightBox,
-            Row(
-              children: [
-                Expanded(
-                  child: CustomElevatedButton(
-                    buttonColor: ConstColors.priamryColor,
-                    onPressed: () {},
-                    buttonTextColor: Colors.white,
-                    buttonLabel: "Edit Profile",
-                  ),
-                ),
-                14.widthBox,
-                Expanded(
-                  child: CustomElevatedButton(
-                    buttonColor: ConstColors.redColor,
-                    onPressed: () {},
-                    buttonTextColor: Colors.white,
-                    buttonLabel: "Delete Profile",
-                  ),
-                ),
-              ],
-            ),
-            14.heightBox,
             TextStyles.regular(
-                label: "Medical Records",
-                textColor: ConstColors.priamryColor,
-                textSize: ConstSizes.doubleLarge,
-                textWeight: FontWeight.w700),
-            14.heightBox,
-            Expanded(
-              child: ListView.builder(
-                  itemCount: items.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: const EdgeInsets.only(bottom: 14),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10.0),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 2,
-                            blurRadius: 5,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: ListTile(
-                        // title: TextStyles.regular(
-                        //     label: items[index].date.toString(),
-                        //     textColor: ConstColors.textColor,
-                        //     textSize: ConstSizes.regularSize,
-                        //     textWeight: FontWeight.w600),
-                        title: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            TextStyles.regular(
-                                label: items[index].date.toString(),
-                                textColor: ConstColors.textColor,
-                                textSize: ConstSizes.regularSize,
-                                textWeight: FontWeight.w600),
-                            TextStyles.regular(
-                                label: items[index].doneBy.toString(),
-                                textColor: ConstColors.textColor,
-                                textSize: ConstSizes.regularSize,
-                                textWeight: FontWeight.w600),
-                            if (items[index].isCritical)
-                              TextStyles.regular(
-                                  label: "Critical".toString(),
-                                  textColor: ConstColors.textColor,
-                                  textSize: ConstSizes.regularSize,
-                                  textWeight: FontWeight.w600),
-                          ],
-                        ),
-                        trailing: const Icon(
-                          Icons.arrow_forward_ios,
-                          size: 14,
-                        ),
-                        onTap: () {
-                          Get.to(() => ViewRecord());
-                        },
-                      ),
-                    );
-                  }),
-            )
+                label: "Summary:",
+                textColor: ConstColors.textColor,
+                textSize: ConstSizes.smallSize,
+                textWeight: FontWeight.w400),
+            TextStyles.regular(
+                label:
+                    "The patient presented with symptoms consistent with acute bronchitis, including cough, fever, and chest discomfort. Physical examination revealed mild wheezing and increased respiratory rate.",
+                textColor: ConstColors.textColor,
+                textSize: ConstSizes.regularSize,
+                textWeight: FontWeight.w400),
           ],
         ),
       ),
