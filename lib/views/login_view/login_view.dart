@@ -3,12 +3,17 @@ import 'package:get/get.dart';
 import 'package:patientclinicflutter/components/customElevatedButton.dart';
 import 'package:patientclinicflutter/constants/const.dart';
 import 'package:patientclinicflutter/components/customTextField.dart';
+import 'package:patientclinicflutter/models/User.dart';
 import 'package:patientclinicflutter/views/home_view/home_view.dart';
 import 'package:patientclinicflutter/views/register_view/register_view.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+import '../../controllers/user_controller.dart';
 
+class LoginView extends StatelessWidget {
+  LoginView({super.key});
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,10 +46,12 @@ class LoginView extends StatelessWidget {
                     child: Column(
                   children: [
                     CustomTextField(
+                      textFieldController: _emailController,
                       placeHolderText: ConstString.emailHint,
                     ),
                     14.heightBox,
                     CustomTextField(
+                      textFieldController: _passwordController,
                       placeHolderText: ConstString.passwordHint,
                     ),
                     24.heightBox,
@@ -58,8 +65,23 @@ class LoginView extends StatelessWidget {
                         )),
                     24.heightBox,
                     CustomElevatedButton(
-                      onPressed: () {
-                        Get.to(() => HomeView());
+                      onPressed: () async {
+                        bool loggedIn = await UserController.loginUser(
+                            _emailController.text, _passwordController.text);
+                        if (loggedIn) {
+                          // ignore: use_build_context_synchronously
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(
+                            content: Text("Login Successful"),
+                          ));
+                          Get.to(() => HomeView());
+                        } else {
+                          // ignore: use_build_context_synchronously
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(
+                            content: Text("Login Unsuccessful"),
+                          ));
+                        }
                       },
                       buttonTextColor: Colors.white,
                       buttonColor: ConstColors.priamryColor,
@@ -78,7 +100,7 @@ class LoginView extends StatelessWidget {
                         6.widthBox,
                         GestureDetector(
                           onTap: () {
-                            Get.to(() => const RegisterView());
+                            Get.to(() => RegisterView());
                           },
                           child: TextStyles.regular(
                             label: ConstString.signupnow,

@@ -3,11 +3,15 @@ import 'package:get/get.dart';
 import 'package:patientclinicflutter/components/customElevatedButton.dart';
 import 'package:patientclinicflutter/constants/const.dart';
 import 'package:patientclinicflutter/components/customTextField.dart';
+import 'package:patientclinicflutter/controllers/user_controller.dart';
 import 'package:patientclinicflutter/views/login_view/login_view.dart';
 
 class RegisterView extends StatelessWidget {
-  const RegisterView({super.key});
+  RegisterView({super.key});
 
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _fullnameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,19 +47,44 @@ class RegisterView extends StatelessWidget {
                     child: Column(
                   children: [
                     CustomTextField(
+                      textFieldController: _emailController,
                       placeHolderText: ConstString.emailHint,
                     ),
                     14.heightBox,
                     CustomTextField(
+                      textFieldController: _fullnameController,
                       placeHolderText: ConstString.nameHint,
                     ),
                     14.heightBox,
                     CustomTextField(
+                      textFieldController: _passwordController,
                       placeHolderText: ConstString.passwordHint,
                     ),
                     24.heightBox,
                     CustomElevatedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        bool isRegistered = await UserController.registerUser(
+                            _fullnameController.text,
+                            _emailController.text,
+                            _passwordController.text);
+                        if (isRegistered) {
+                          print("registered");
+                          // ignore: use_build_context_synchronously
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(
+                            content: Text("Registered Successfully"),
+                          ));
+                          // Navigate to login screen or perform desired action
+                          Get.to(() => LoginView());
+                        } else {
+                          // ignore: use_build_context_synchronously
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(
+                            content: Text("Register Unsuccessful"),
+                          ));
+                          // Show error message or handle unsuccessful registration
+                        }
+                      },
                       buttonTextColor: Colors.white,
                       buttonColor: ConstColors.priamryColor,
                       buttonLabel: ConstString.signup,
@@ -73,7 +102,7 @@ class RegisterView extends StatelessWidget {
                         6.widthBox,
                         GestureDetector(
                           onTap: () {
-                            Get.to(() => const LoginView());
+                            Get.to(() => LoginView());
                           },
                           child: TextStyles.regular(
                             label: ConstString.loginNow,

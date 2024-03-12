@@ -36,7 +36,7 @@ class SplashScreen extends StatelessWidget {
                 children: [
                   CustomElevatedButton(
                     onPressed: () {
-                      Get.to(() => const LoginView());
+                      Get.to(() => LoginView());
                     },
                     buttonTextColor: Colors.white,
                     buttonColor: ConstColors.priamryColor,
@@ -45,7 +45,7 @@ class SplashScreen extends StatelessWidget {
                   24.heightBox,
                   CustomElevatedButton(
                     onPressed: () {
-                      Get.to(() => const RegisterView());
+                      Get.to(() => RegisterView());
                     },
                     buttonTextColor: Colors.white,
                     buttonColor: ConstColors.redColor,
