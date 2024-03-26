@@ -119,7 +119,9 @@ class HomeView extends StatelessWidget {
                                               textWeight: FontWeight.w500,
                                               alignment: TextAlign.center),
                                           TextStyles.regular(
-                                              label: "10",
+                                              label: apiController
+                                                  .responseData.length
+                                                  .toString(),
                                               textColor: ConstColors.textColor,
                                               textSize: ConstSizes.extraLarge,
                                               textWeight: FontWeight.w600)
@@ -142,7 +144,9 @@ class HomeView extends StatelessWidget {
                                               textWeight: FontWeight.w500,
                                               alignment: TextAlign.center),
                                           TextStyles.regular(
-                                              label: "10",
+                                              label: apiController
+                                                  .responseData.length
+                                                  .toString(),
                                               textColor: ConstColors.textColor,
                                               textSize: ConstSizes.extraLarge,
                                               textWeight: FontWeight.w600)
