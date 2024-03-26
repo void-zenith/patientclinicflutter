@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:patientclinicflutter/controllers/patient_controller.dart';
 
 import '../../components/customElevatedButton.dart';
 import '../../components/customTextField.dart';
@@ -14,6 +15,10 @@ class AddPatientForm extends StatefulWidget {
 class _AddPatientState extends State<AddPatientForm> {
   String? _gender;
   DateTime selectedDate = DateTime.now();
+  final TextEditingController _fullnamecontroller = TextEditingController();
+  final TextEditingController _emailcontroller = TextEditingController();
+  final TextEditingController _addresscontroller = TextEditingController();
+  final TextEditingController _phonecontroller = TextEditingController();
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -50,6 +55,7 @@ class _AddPatientState extends State<AddPatientForm> {
                 ),
                 8.heightBox,
                 CustomTextField(
+                  textFieldController: _fullnamecontroller,
                   placeHolderText: ConstString.patientNameHint,
                 ),
                 14.heightBox,
@@ -64,6 +70,7 @@ class _AddPatientState extends State<AddPatientForm> {
                 ),
                 8.heightBox,
                 CustomTextField(
+                  textFieldController: _emailcontroller,
                   placeHolderText: ConstString.patientEmail,
                 ),
                 14.heightBox,
@@ -78,6 +85,7 @@ class _AddPatientState extends State<AddPatientForm> {
                 ),
                 8.heightBox,
                 CustomTextField(
+                  textFieldController: _addresscontroller,
                   placeHolderText: ConstString.patientAddress,
                 ),
                 14.heightBox,
@@ -92,6 +100,7 @@ class _AddPatientState extends State<AddPatientForm> {
                 ),
                 8.heightBox,
                 CustomTextField(
+                  textFieldController: _phonecontroller,
                   placeHolderText: ConstString.patientNumber,
                 ),
                 24.heightBox,
@@ -106,7 +115,7 @@ class _AddPatientState extends State<AddPatientForm> {
                 ),
                 8.heightBox,
                 RadioListTile<String>(
-                  title: Text('Male'),
+                  title: const Text('Male'),
                   value: 'Male',
                   groupValue: _gender,
                   onChanged: (value) {
@@ -116,7 +125,7 @@ class _AddPatientState extends State<AddPatientForm> {
                   },
                 ),
                 RadioListTile<String>(
-                  title: Text('Female'),
+                  title: const Text('Female'),
                   value: 'Female',
                   groupValue: _gender,
                   onChanged: (value) {
@@ -126,7 +135,7 @@ class _AddPatientState extends State<AddPatientForm> {
                   },
                 ),
                 RadioListTile<String>(
-                  title: Text('Other'),
+                  title: const Text('Other'),
                   value: 'Other',
                   groupValue: _gender,
                   onChanged: (value) {
@@ -166,8 +175,28 @@ class _AddPatientState extends State<AddPatientForm> {
                 ),
                 24.heightBox,
                 CustomElevatedButton(
-                  onPressed: () {
-                    Get.to(() => HomeView());
+                  onPressed: () async {
+                    bool isAdded = await PatientController.addPatient(
+                        _fullnamecontroller.text,
+                        _emailcontroller.text,
+                        _addresscontroller.text,
+                        _phonecontroller.text,
+                        _gender!,
+                        selectedDate.toString());
+                    if (isAdded) {
+                      // ignore: use_build_context_synchronously
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text("Patient Added Successfully"),
+                      ));
+                      // Navigate to login screen or perform desired action
+                      Get.to(() => HomeView());
+                    } else {
+                      // ignore: use_build_context_synchronously
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text("Patient Not Added"),
+                      ));
+                      // Show error message or handle unsuccessful registration
+                    }
                   },
                   buttonTextColor: Colors.white,
                   buttonColor: ConstColors.priamryColor,

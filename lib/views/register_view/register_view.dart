@@ -68,7 +68,6 @@ class RegisterView extends StatelessWidget {
                             _emailController.text,
                             _passwordController.text);
                         if (isRegistered) {
-                          print("registered");
                           // ignore: use_build_context_synchronously
                           ScaffoldMessenger.of(context)
                               .showSnackBar(const SnackBar(

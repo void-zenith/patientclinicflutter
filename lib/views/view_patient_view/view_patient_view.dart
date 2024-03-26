@@ -10,8 +10,8 @@ import '../add_patient_view/add_patient_view.dart';
 import '../splash_view.dart';
 
 class ViewPatient extends StatelessWidget {
-  ViewPatient({super.key});
-
+  final String userId;
+  ViewPatient({super.key, required this.userId});
   void onSelected(BuildContext context, int item) {
     switch (item) {
       case 0:
@@ -58,7 +58,7 @@ class ViewPatient extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             TextStyles.regular(
-                label: "Zenith Rajbhandari",
+                label: userId,
                 textColor: ConstColors.priamryColor,
                 textSize: ConstSizes.doubleLarge,
                 textWeight: FontWeight.w700),
