@@ -90,12 +90,12 @@ class HomeView extends StatelessWidget {
             onRefresh: () => apiController.fetchData(), // Call fetchDat,child:
             child: Obx(() {
               if (apiController.isLoading.value) {
-                return CircularProgressIndicator();
+                return const CircularProgressIndicator();
               } else if (apiController.error.value.isNotEmpty) {
                 return Text(apiController.error.value);
               } else {
                 return apiController.responseData.isEmpty
-                    ? Text('No data available')
+                    ? const Text('No data available')
                     : Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [

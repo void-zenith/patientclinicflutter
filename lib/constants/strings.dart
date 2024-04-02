@@ -23,5 +23,7 @@ class ConstString {
       heartBeatHint = "Enter Heartbeat Rate..",
       bloodOxygenHint = "Enter Blood Oxygen Level..",
       addPatient = "Add Patient",
-      addRecord = "Add Record";
+      addRecord = "Add Record",
+      enterSummary = "Enter record summary..",
+      enterRecord = "Enter record title..";
 }

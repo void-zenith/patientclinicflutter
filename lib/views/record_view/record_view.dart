@@ -9,8 +9,8 @@ import '../add_patient_view/add_patient_view.dart';
 import '../splash_view.dart';
 
 class ViewRecord extends StatelessWidget {
-  ViewRecord({super.key});
-
+  final String userId;
+  ViewRecord({super.key, required this.userId});
   void onSelected(BuildContext context, int item) {
     switch (item) {
       case 0:
@@ -22,10 +22,7 @@ class ViewRecord extends StatelessWidget {
     }
   }
 
-  final List<Record> items = [
-    Record("2021-12-12", "user1", false),
-    Record("2021-12-123", "user1", true),
-  ];
+  final List<Record> items = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -188,7 +185,7 @@ class ViewRecord extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.to(() => const AddRecordView());
+          Get.to(() => AddRecordView(userId: userId));
           // Add your onPressed functionality here
         },
         backgroundColor: ConstColors.priamryColor,

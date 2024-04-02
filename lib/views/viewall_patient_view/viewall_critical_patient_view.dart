@@ -59,7 +59,7 @@ class ViewAllCriticalPatient extends StatelessWidget {
         backgroundColor: ConstColors.priamryColor,
         centerTitle: true,
         title: TextStyles.regular(
-            label: "List of Patient",
+            label: "List of Critical Patient",
             textColor: Colors.white,
             textSize: ConstSizes.largeSize,
             textWeight: FontWeight.w700),

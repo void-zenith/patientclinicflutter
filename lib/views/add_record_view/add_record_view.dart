@@ -9,7 +9,8 @@ import '../home_view/home_view.dart';
 import '../register_view/register_view.dart';
 
 class AddRecordView extends StatelessWidget {
-  const AddRecordView({super.key});
+  final String userId;
+  const AddRecordView({super.key, required this.userId});
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,6 @@ class AddRecordView extends StatelessWidget {
               textSize: ConstSizes.largeSize,
               textWeight: FontWeight.w700),
         ),
-        body: AddRecordForm());
+        body: AddRecordForm(userId: userId));
   }
 }
